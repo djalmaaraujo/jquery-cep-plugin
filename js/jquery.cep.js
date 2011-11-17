@@ -19,15 +19,10 @@
 				street_type: 'tipo_logradouro',
 				street: 'logradouro'
 			},
-			
-			// callback: '.jcep-target', // .jcep-target, callback function() {}
-			callback: function (data) {
-				console.log(data);
-			},
-			
+			callback: '.jcep-target', // .jcep-target, callback function() {}
 			request: {
 				cep: null,
-				format: 'json', // json, xml, query_string, call_back
+				format: 'javascript', // javascript, (xml, query_string soon)
 			}
         };
 
@@ -55,9 +50,12 @@
 		switch (_i.element.localName) {
 			case 'input':
 				if (_i.element.type == 'text') { // supports only text input
-					self.keydown(function () {
-						var cep = $(this).val();
-						if (_i.validateCep(cep)) _i.makeRequest(cep);
+					self.keyup(function (event) {
+						console.log(event.keyCode);
+						if ((event.keyCode == 189) || ((event.keyCode >= 48) && (event.keyCode <= 57)) || ((event.keyCode >= 96) && (event.keyCode <= 105))) { // Only numbers and -
+							var cep = $(this).val();
+							if (_i.validateCep(cep)) _i.makeRequest(cep);
+						}
 					});
 				}
 				break;
@@ -78,8 +76,8 @@
 		var _i = this;
 		_i.options.request.cep = cep;
 		
-		$.getScript(_i.options.gateway + '?cep=' + cep, function(data, textStatus) {
-			if (textStatus == 'success') _i.parseCallBack(result);
+		$.getScript(_i.options.gateway + '?cep=' + cep + '&format=' + _i.options.request.format, function(data, textStatus) {
+			if (textStatus == 'success') _i.parseCallBack(resultadoCEP);
 		}, 'JSON');
 	};
 	
@@ -89,11 +87,12 @@
 		
 		var _opts = this.options;
 		var callBack = _opts.callback;
+		var parsedResponse = this.jsonTemplateParser(_opts.request.result);
 		
 		if (!$.isPlainObject(callBack.prototype)) {
-			this.outPutHtmlTemplate(data);
+			this.outPutHtmlTemplate(parsedResponse);
 		} else {
-			callBack(this.jsonTemplateParser(_opts.request.result));
+			callBack(parsedResponse);
 		}
 	};
 	
@@ -107,6 +106,16 @@
 		});
 		
 		return parsed;
+	};
+	
+	Plugin.prototype.outPutHtmlTemplate = function (data) {
+		var _i = this;
+		var target = _i.options.callback;
+		var html = $(target).addClass('jcep-container');
+					
+		$.each(_i.options.json_template, function(index, value) {
+			html.append($('<div />').addClass('jcep-' + index).text(data[index]));
+		});
 	};
 	
 	// CEP Validation
