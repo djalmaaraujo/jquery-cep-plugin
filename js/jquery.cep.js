@@ -9,7 +9,7 @@
     // Create the defaults once
     var pluginName = 'jCep',
         defaults = {
-            gateway: "http://localhost/webservice.php",
+            gateway: "http://apps.pianolab.com.br/wscep/",
 			json_template: {
 				result: 'resultado',
 				result_message: 'resultado_txt',
