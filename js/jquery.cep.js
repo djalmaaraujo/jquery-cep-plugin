@@ -51,7 +51,6 @@
 			case 'input':
 				if (_i.element.type == 'text') { // supports only text input
 					self.keyup(function (event) {
-						console.log(event.keyCode);
 						if ((event.keyCode == 189) || ((event.keyCode >= 48) && (event.keyCode <= 57)) || ((event.keyCode >= 96) && (event.keyCode <= 105))) { // Only numbers and -
 							var cep = $(this).val();
 							if (_i.validateCep(cep)) _i.makeRequest(cep);
