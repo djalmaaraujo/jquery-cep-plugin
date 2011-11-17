@@ -1,5 +1,14 @@
 /* Author: Djalma Araújo */
 jQuery(function() {
-	$('select').jCep();
+	
+	// Select onchange
+	$('select').jCep({
+		'callback': function(data) {
+			alert('Look your DEBUG Console');
+			console.log(data);
+		}
+	});
+	
+	// Input keyup
 	$('input[type="text"]').jCep();
 });
