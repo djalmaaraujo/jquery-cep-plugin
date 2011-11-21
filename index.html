@@ -47,7 +47,18 @@
 						<iframe style="width: 100%; height: 80px" src="http://jsfiddle.net/WDmu3/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 					</code>
 					<p><input type="text" placeholder="Type an valid CEP here and wait.."></p>
-					<div class="jcep-target"></div>
+					<div class="jcep-target">
+						<strong>Should return:</strong><br />
+						Result Status: Int (1/0)<br />
+						State: String<br />
+						City: String<br />
+						Neighborhood: String<br />
+						Street type: Street<br />
+						Street: Street<br /><br />
+						
+						
+						Results:<br />
+					</div>
 					
 					<hr />
 					
@@ -67,7 +78,7 @@
 					<li>WebService used: <strong>http://apps.pianolab.com.br/wscep/</strong> <small><i>(No database stored. This webservice is just a wrapper that grabs informations from <strong>http://republicavirtual.com.br/cep/</strong>). No CEP database is used on pianolab's webservice.</i></small></li>
 					<li>Callback options: <strong>callback: function (data) {}</strong> or <strong>".some-classe"</strong> <small><i>(.jcep-target is a default classe)</i></small></li>
 
-					<li>Json template: <i><small>(You can change passing on options if you want to change the webservice)</small></i><Br />
+					<li>Json template: <i><small>(You can change passing on options if you want to change the webservice)</small></i><br />
 					<pre><code><i>json_template: {
 		result: 'resultado',
 		result_message: 'resultado_txt',
@@ -81,6 +92,14 @@
 		
 		<hr />				
 		<p>by <a href="http://www.github.com/djalmaaraujo">djalmaaraujo</a></p>
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style ">
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		<a class="addthis_button_tweet"></a>
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		</div>
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4de6bf001a31dea5"></script>
+		<!-- AddThis Button END -->
 								
 		</div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
