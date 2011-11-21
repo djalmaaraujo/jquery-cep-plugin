@@ -26,7 +26,7 @@
 <div id="container">
 		<div id="header-container">
 			<header class="wrapper">
-				<h1 id="title">jCep</h1>
+				<h1 id="title"><img src="images/logo.png" alt=""></h1>
 				<nav>
 					<ul>
 						<li><a href="index.html">Examples</a></li>
@@ -37,24 +37,28 @@
 			</header>
 		</div>
 		<div id="main" class="wrapper">
-				<h3>Options</h3>
+				<h2>Examples</h2>
 				<form action="index_submit" method="get" accept-charset="utf-8">
 					
-					<h4>On keyup inside input text</h4>
-					<p><input type="text" value="54410-220"></p>
+					<h3>On input text with no callback function</h3>
+					<p>This example will find an element with ".jcep-target" class and put by default informations</p>
+					<code>
+						<iframe style="width: 100%; height: 80px" src="http://jsfiddle.net/WDmu3/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+					</code>
+					<p><input type="text" placeholder="Type an valid CEP here and wait.."></p>
+					<div class="jcep-target"></div>
 					
-					<h4>Event Change in non-multiple selects</h4>
+					
+					<h3>Event Change in non-multiple selects</h3>
+					<p>This example will do a console.log with the response from webservice. Enable you debug console (like firebug or chrome console..).</p>
+					<code><iframe style="width: 100%; height: 170px" src="http://jsfiddle.net/HcAXf/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe></code>
 					<p><select name="some_name" id="some_name" onchange="" size="1">
+						<option value="X">Choose an CEP here..</option>
 						<option value="54410-220">54410-220</option>
 						<option value="01311-000">01311-000</option>
-						
 					</select></p>
 				</form>
-				
-				<h3>Response</h3>
-				<div class="jcep-target">
-					
-				</div>
+								
 		</div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
