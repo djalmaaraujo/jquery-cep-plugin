@@ -2,6 +2,7 @@
  *  Project: jQuery CEP Plugin
  *  Description: Return informations about an Brazilian CEP (postal code)
  *  Author: Djalma Araújo
+ * http://djalmaaraujo.com.br/share/jquery.cep/
  *  License: MIT License
  */
 ;(function ( $, window, document, undefined ) {
