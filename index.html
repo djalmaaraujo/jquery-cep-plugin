@@ -38,9 +38,10 @@
 		</div>
 		<div id="main" class="wrapper">
 				<h2>Examples</h2>
+				
 				<form action="index_submit" method="get" accept-charset="utf-8">
 					
-					<h3>On input text with no callback function</h3>
+					<h3>Example 1: On input text with no callback function</h3>
 					<p>This example will find an element with ".jcep-target" class and put by default informations</p>
 					<code>
 						<iframe style="width: 100%; height: 80px" src="http://jsfiddle.net/WDmu3/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -48,8 +49,9 @@
 					<p><input type="text" placeholder="Type an valid CEP here and wait.."></p>
 					<div class="jcep-target"></div>
 					
+					<hr />
 					
-					<h3>Event Change in non-multiple selects</h3>
+					<h3>Example 2: Event Change in non-multiple selects</h3>
 					<p>This example will do a console.log with the response from webservice. Enable you debug console (like firebug or chrome console..).</p>
 					<code><iframe style="width: 100%; height: 170px" src="http://jsfiddle.net/HcAXf/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe></code>
 					<p><select name="some_name" id="some_name" onchange="" size="1">
@@ -58,6 +60,27 @@
 						<option value="01311-000">01311-000</option>
 					</select></p>
 				</form>
+				<hr />
+				<h3>Some infos</h3>
+				<ul>
+					<li>JSON response data;</li>
+					<li>WebService used: <strong>http://apps.pianolab.com.br/wscep/</strong> <small><i>(No database stored. This webservice is just a wrapper that grabs informations from <strong>http://republicavirtual.com.br/cep/</strong>). No CEP database is used on pianolab's webservice.</i></small></li>
+					<li>Callback options: <strong>callback: function (data) {}</strong> or <strong>".some-classe"</strong> <small><i>(.jcep-target is a default classe)</i></small></li>
+
+					<li>Json template: <i><small>(You can change passing on options if you want to change the webservice)</small></i><Br />
+					<pre><code><i>json_template: {
+		result: 'resultado',
+		result_message: 'resultado_txt',
+		state: 'uf',
+		city: 'cidade',
+		neighborhood: 'bairro',
+		street_type: 'tipo_logradouro',
+		street: 'logradouro'
+	}</i></code></pre></li>
+				</ul>
+		
+		<hr />				
+		<p>by <a href="http://www.github.com/djalmaaraujo">djalmaaraujo</a></p>
 								
 		</div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
